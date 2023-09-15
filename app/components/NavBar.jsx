@@ -52,17 +52,17 @@ function NavBar() {
                                 }`}
                         >
                             <ul className="h-screen md:h-auto items-center justify-center md:flex ">
-                                <li className="pb-6 text-xl text-white py-2 md:px-6 text-center border-b-2 md:border-b-0  hover:bg-purple-900  border-white  md:hover:text-purple-600 md:hover:bg-transparent">
+                                <li className="pb-6 text-xl text-white py-2 md:px-6 text-center border-b-2 md:border-b-0  hover:bg-purple-900  border-white  md:hover:text-[#e29b64] md:hover:bg-transparent">
                                     <Link href="/about" onClick={() => setNavbar(!navbar)}>
                                         About
                                     </Link>
                                 </li>
-                                <li className="pb-6 text-xl text-white py-2 px-6 text-center  border-b-2 md:border-b-0  hover:bg-purple-600  border-white  md:hover:text-purple-600 md:hover:bg-transparent">
+                                <li className="pb-6 text-xl text-white py-2 px-6 text-center  border-b-2 md:border-b-0  hover:bg-purple-600  border-white  md:hover:text-[#e29b64] md:hover:bg-transparent">
                                     <Link href="/portfolio" onClick={() => setNavbar(!navbar)}>
                                         Portfolio
                                     </Link>
                                 </li>
-                                <li className="pb-6 text-xl text-white py-2 px-6 text-center  border-b-2 md:border-b-0  hover:bg-purple-600  border-white  md:hover:text-purple-600 md:hover:bg-transparent">
+                                <li className="pb-6 text-xl text-white py-2 px-6 text-center  border-b-2 md:border-b-0  hover:bg-purple-600  border-white  md:hover:text-[#e29b64] md:hover:bg-transparent">
                                     <Link href="/contact" onClick={() => setNavbar(!navbar)}>
                                         Contact
                                     </Link>
