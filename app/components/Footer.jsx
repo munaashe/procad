@@ -8,10 +8,10 @@ function Footer() {
         <footer>
             <div className='max-w-6xl mx-auto px-4 sm:px-6'>
                 {/* Top area: Blocks */}
-                <div className='grid sm:grid-cols-12 gap-8 py-8 md:py-12 border-t border-gray-200'>
+                <div className='grid grid-cols-12 tab:grid-cols-6 sm:grid-cols-6 xs:grid-cols-6 gap-8 py-8 tab:py-12 border-t border-gray-200'>
                     {/* 1st block */}
-                    <div className='sm:col-span-12 lg:col-span-3'>
-                        <div className='mb-2 flex items-center justify-center'>
+                    <div className='sm:col-span-12 tab:col-span-3 lg:col-span-3 xs:col-span-6'>
+                        <div className='mb-2 flex items-center justify-center tab:justify-start'>
                             {/* Logo */}
                             <Link href='/' aria-label='Cruip'>
                                 <Image
@@ -26,7 +26,7 @@ function Footer() {
                     </div>
 
                     {/* 2nd block */}
-                    <div className='sm:col-span-6 md:col-span-3 lg:col-span-3'>
+                    <div className='sm:col-span-6 tab:col-span-3 lg:col-span-3 xs:col-span-3'>
                         <h6 className='text-gray-800 font-medium mb-2'>
                             Services
                         </h6>
@@ -67,7 +67,7 @@ function Footer() {
                     </div>
 
                     {/* 3rd block */}
-                    <div className='sm:col-span-6 md:col-span-3 lg:col-span-3'>
+                    <div className='sm:col-span-6 tab:col-span-3 lg:col-span-3 xs:col-span-3'>
                         <h6 className='text-gray-800 font-medium mb-2'>
                             Company
                         </h6>
@@ -108,7 +108,7 @@ function Footer() {
                     </div>
 
                     {/* 4th block */}
-                    <div className='sm:col-span-6 md:col-span-3 lg:col-span-3'>
+                    <div className='sm:col-span-6 tab:col-span-3 lg:col-span-3 xs:col-span-6'>
                         <h6 className='text-gray-800 font-medium mb-2'>
                             Subscribe
                         </h6>
@@ -163,9 +163,9 @@ function Footer() {
                 </div>
 
                 {/* Bottom area */}
-                <div className='md:flex md:items-center md:justify-between py-4 md:py-8 border-t border-gray-200'>
+                <div className='flex items-center justify-between py-4 tab:py-8 border-t border-gray-200'>
                     {/* Social links */}
-                    <ul className='flex mb-4 md:order-1 md:ml-4 md:mb-0 justify-center'>
+                    <ul className='flex mb-4 order-1 tab:ml-4 tab:mb-0 justify-center'>
                         <li>
                             <Link
                                 href='https://twitter.com/procad_eng'

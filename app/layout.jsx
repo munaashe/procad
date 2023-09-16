@@ -1,9 +1,12 @@
 import Footer from './components/Footer'
 import NavBar from './components/NavBar'
 import './globals.css'
-import { Inter } from 'next/font/google'
+import { Roboto } from 'next/font/google'
 
-const inter = Inter({ subsets: ['latin'] })
+const roboto = Roboto({
+  weight: ['400', '700'],
+  subsets: ['latin']
+})
 
 export const metadata = {
   title: 'Procad Construction',
@@ -14,7 +17,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <NavBar />
-      <body className={inter.className}>{children}</body>
+      <body className={roboto.className}>{children}</body>
       <Footer />
     </html>
   )
