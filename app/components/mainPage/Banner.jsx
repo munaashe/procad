@@ -15,7 +15,7 @@ const Banner = () => {
                 <div className="w-full text-[#e29b64] text-2xl md:text-lg sm:text-base font-normal leading-[30px] md:leading-[25px] sm:leading-[20px] pt-[25px]">
                     We turn dreams into reality through customized construction solutions that meet our clients' precise needs.
                 </div>
-                <div className="w-[157px] h-[45px] bg-[#243353] rounded-[32.50px] flex justify-center items-center mt-[25px] cursor-pointer">
+                <div className="w-[157px] h-[45px] bg-[#243353] rounded-[32.50px] flex justify-center items-center mt-[25px] cursor-pointer hover:bg-[#7f2d00]">
                     <Link href='/portfolio'>
                         <div className="text-white text-lg md:text-base sm:text-sm font-bold leading-[18px] md:leading-[15px] sm:leading-[12px]">
                             See our works

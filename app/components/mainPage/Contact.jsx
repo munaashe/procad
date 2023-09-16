@@ -27,7 +27,7 @@ const Contact = () => {
                         <Link href='/contact'>
                             <button
                                 type='submit'
-                                className='inline-flex items-center justify-center rounded-2xl bg-[#e29b64] hover:bg-[#0b341c] active:bg-[#f2fcf4] py-4 px-6 text-base font-medium text-white transition duration-300 ease-in-out hover:bg-dark'
+                                className='inline-flex items-center justify-center rounded-2xl bg-[#e29b64] hover:bg-[#0b341c] active:bg-[#7f2d00] py-4 px-6 text-base font-medium text-white transition duration-300 ease-in-out hover:bg-[#7f2d00]'
                             >
                                 Reach Out to Us Today
                             </button>
