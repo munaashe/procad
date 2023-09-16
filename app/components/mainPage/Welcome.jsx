@@ -31,7 +31,7 @@ const Welcome = () => {
                         </div>
 
                         <div className='w-full md:w-4/12 px-4 mr-auto ml-auto'>
-                            <div className='relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded-lg bg-[#7f2d00]'>
+                            <div className='relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded-lg bg-[#7e2d00]'>
                                 <Image
                                     alt='Kadge \Construction Pvt Ltd'
                                     src={meeting}
