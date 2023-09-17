@@ -10,33 +10,22 @@ const Contact = () => {
   const [loader, setLoader] = useState(false)
 
   const sendEmail = (e) => {
-    e.preventDefault()
-    setLoader(true)
+    e.preventDefault();
+    setLoader(true);
 
-    const currentForm = form.current
-    if (currentForm == null) return
+    emailjs.sendForm('denis_siduna', 'procad_contact', e.currentTarget, 'EKLjLPu4AEXvL05kc')
+      .then((result) => {
+        console.log(result.text);
+        alert('Submission successful, we will get back to you');
+        setLoader(false);
+      }, (error) => {
+        console.log(error.text);
+        setLoader(false);
+        alert('Error! Please try again')
+      });
 
-    emailjs
-      .sendForm(
-        'siduna_ndou',
-        'sndou_contact_us',
-        currentForm,
-        'LQVvEhCcncCuyskbE',
-      )
-      .then(
-        result => {
-          console.log(result.text)
-          setLoader(false)
-          alert('Submission successful, we will get back to you')
-        },
-        error => {
-          console.log(error.text)
-          setLoader(false)
-          alert('Error! Please try again')
-        },
-      )
-    currentForm.reset()
-  }
+    e.currentTarget.reset();
+  };
 
   return (
     <section
