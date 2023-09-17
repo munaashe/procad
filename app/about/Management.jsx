@@ -1,49 +1,46 @@
 import React from 'react'
 import Image from 'next/image'
-import joker from '@/app/assets/joker.jpg'
+import patsimo from '@/app/assets/patsimo.png'
+import anesu from '@/app/assets/anesu.png'
+import kudzi from '@/app/assets/kudzi.png'
+import ngoni from '@/app/assets/ngoni.png'
+import steve from '@/app/assets/steve.png'
 
 const directors = [
     {
         name: 'Eng. P. Ncube',
-        position: 'Executive Director',
-        linkedIn: '#',
+        position: 'Commercial Director',
+        linkedIn: 'https://www.linkedin.com/in/patsimo-ncube-02729412a/',
         whatsapp: '263785874486',
-        image: joker
+        image: patsimo
+    },
+    {
+        name: 'Eng. K. Nyengerai',
+        position: 'Financial Director',
+        linkedIn: 'https://www.linkedin.com/in/kudzai-esther-nyengerai-661236138/',
+        whatsapp: '263776013163',
+        image: kudzi
+    },
+    {
+        name: 'Eng. A. Munaki',
+        position: 'Operational Director',
+        linkedIn: 'https://www.linkedin.com/in/anesu-munaki-5077b552/',
+        whatsapp: '263774675544',
+        image: anesu
+    },
+    {
+        name: 'Eng. S. Kamupurusa',
+        position: 'Commercial Director',
+        linkedIn: 'https://www.linkedin.com/in/stephen-kampulusa-731b3991/',
+        whatsapp: '263776306750',
+        image: steve
     },
     {
         name: 'Eng. N. Masisimani',
         position: 'Operations Director',
-        linkedIn: '#',
-        whatsapp: '263785874486',
-        image: joker
-    },
-    {
-        name: 'Eng. A. Munaki',
-        position: 'Executive Director',
-        linkedIn: '#',
-        whatsapp: '263785874486',
-        image: joker
-    },
-    {
-        name: 'Eng. K. Nyengerai',
-        position: 'Executive Director',
-        linkedIn: '#',
-        whatsapp: '263785874486',
-        image: joker
-    },
-    {
-        name: 'Eng. S. Kamupurusa',
-        position: 'Executive Director',
-        linkedIn: '#',
-        whatsapp: '263785874486',
-        image: joker
-    },
-    {
-        name: 'Eng. T. Musundire',
-        position: 'Executive Director',
-        linkedIn: '#',
-        whatsapp: '263785874486',
-        image: joker
+        linkedIn: 'https://www.linkedin.com/in/ngonidzashe-masisimani-11b58b131/',
+        whatsapp: '263776013163',
+        image: ngoni
     },
 ]
 
@@ -63,7 +60,7 @@ const Management = () => {
                         </p>
                     </div>
                 </div>
-                <div className='flex flex-wrap'>
+                <div className='flex flex-wrap justify-evenly'>
                     {directors.map((director) => (
                         <div className='w-full md:w-6/12 lg:w-4/12 lg:mb-0 px-4'>
                             <div className='container mx-auto px-4 mt-16'>
