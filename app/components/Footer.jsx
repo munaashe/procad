@@ -203,6 +203,7 @@ function Footer() {
                         <a
                             className='text-blue-600 hover:underline'
                             href='https://munashe.co.zw/'
+                            target='_blank'
                         >
                             SiDesigned
                         </a>{' '}
