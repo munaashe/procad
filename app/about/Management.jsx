@@ -65,7 +65,7 @@ const Management = () => {
                 </div>
                 <div className='flex flex-wrap'>
                     {directors.map((director) => (
-                        <div className='w-full xs:w-6/12 lg:w-4/12 lg:mb-0 px-4'>
+                        <div className='w-full md:w-6/12 lg:w-4/12 lg:mb-0 px-4'>
                             <div className='container mx-auto px-4 mt-16'>
                                 <div className='relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-xl rounded-lg '>
                                     <div className='px-6 flex flex-col'>
