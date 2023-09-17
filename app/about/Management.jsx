@@ -4,42 +4,42 @@ import joker from '@/app/assets/joker.jpg'
 
 const directors = [
     {
-        name: 'Eng. Patsimo Ncube',
+        name: 'Eng. P. Ncube',
         position: 'Executive Director',
         linkedIn: '#',
         whatsapp: '263785874486',
         image: joker
     },
     {
-        name: 'Eng. Ngoni Masisimani',
+        name: 'Eng. N. Masisimani',
         position: 'Operations Director',
         linkedIn: '#',
         whatsapp: '263785874486',
         image: joker
     },
     {
-        name: 'Eng. Anesu Munaki',
+        name: 'Eng. A. Munaki',
         position: 'Executive Director',
         linkedIn: '#',
         whatsapp: '263785874486',
         image: joker
     },
     {
-        name: 'Eng. Kudzi Nyengerai',
+        name: 'Eng. K. Nyengerai',
         position: 'Executive Director',
         linkedIn: '#',
         whatsapp: '263785874486',
         image: joker
     },
     {
-        name: 'Eng. Stephen Kamupurusa',
+        name: 'Eng. S. Kamupurusa',
         position: 'Executive Director',
         linkedIn: '#',
         whatsapp: '263785874486',
         image: joker
     },
     {
-        name: 'Eng. Tafadzwa Musundire',
+        name: 'Eng. T. Musundire',
         position: 'Executive Director',
         linkedIn: '#',
         whatsapp: '263785874486',
