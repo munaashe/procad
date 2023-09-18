@@ -67,16 +67,14 @@ const Management = () => {
                                 <div className='relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-xl rounded-lg '>
                                     <div className='px-6 flex flex-col'>
                                         <div className='flex flex-wrap justify-center'>
-                                            <div className='w-full px-4 lg:order-2 flex justify-center'>
-                                                <div className='flex justify-center '>
+                                            <div className='w-full px-4 order-2 flex justify-center'>
+                                                <div className='flex justify-center h-[260px]'>
                                                     <Image
                                                         alt={director.name}
                                                         src={director.image}
-                                                        className='shadow-xl rounded-full h-[250px] w-full align-middle border-none'
+                                                        className='shadow-xl rounded-full min-h-[250px] min-w-[250px] w-full align-middle border-none'
                                                         width={250}
                                                         height={250}
-                                                        // layout="fill" 
-                                                        objectFit="cover"
                                                     />
                                                 </div>
                                             </div>

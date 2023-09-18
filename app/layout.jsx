@@ -9,16 +9,17 @@ const roboto = Roboto({
 })
 
 export const metadata = {
-  title: 'Procad Construction',
+  title: 'Home | Procad Construction',
   description: 'Procad Construction - Your trusted partner for residential and commercial construction projects. Exceptional results, on time and within budget. Contact us today.'
 }
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <NavBar />
+      
       <body className={roboto.className}>{children}</body>
       <Footer />
+      <NavBar />
     </html>
   )
 }

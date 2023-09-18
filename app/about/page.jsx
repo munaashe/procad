@@ -4,6 +4,10 @@ import Story from './Story'
 import Vision from './Vision'
 import Management from './Management'
 
+export const metadata = {
+    title: 'About Us | Procad Construction'
+}
+
 const About = () => {
     return (
         <div className='pt-20 pb-4'>
