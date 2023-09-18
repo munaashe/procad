@@ -5,7 +5,7 @@ import Link from 'next/link';
 
 const Banner = () => {
     return (
-        <div className='p-24 min-h-[450px] w-full relative px-[20px] xs:px-0 flex jutify-center items-center xs:flex-col-reverse gap-4 px-24 xs:px-4'>
+        <div className='m-24 min-h-[450px] w-full relative px-[20px] xs:px-0 flex jutify-center items-center xs:flex-col-reverse gap-4 px-24 xs:px-4'>
             <div className='w-full'>
                 <div className="text-[#243353] text-[85px] md:text-[70px] xs:text-[32px] sm:text-[32px] font-bold leading-[85px] md:leading-[70px] sm:leading-[60px]">
                     Dream it,

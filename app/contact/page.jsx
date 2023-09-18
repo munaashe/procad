@@ -1,9 +1,10 @@
 'use client'
+import { Metadata } from 'next'
 
 import React, { useRef, useState } from 'react'
 import emailjs from '@emailjs/browser'
 import Link from 'next/link'
-import Head from 'next/head'
+
 
 const Contact = () => {
   const form = useRef(null)
