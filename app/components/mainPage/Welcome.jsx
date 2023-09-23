@@ -4,7 +4,7 @@ import meeting from '@/app/assets/meeting.jpg'
 const Welcome = () => {
     return (
         <>
-            <section className='pb-20 bg-[#f1f1f1] -mt-24'>
+            <section className='pb-20 bg-[#f1f1f1] -mt-24 xs:mt-0'>
                 <div className='container mx-auto px-4'>
 
                     <div className='flex flex-wrap items-center mt-8'>
