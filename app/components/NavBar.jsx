@@ -53,22 +53,22 @@ function NavBar() {
                                 }`}
                         >
                             <ul className="h-screen md:h-auto items-center justify-center md:flex ">
-                                <li className={`pb-6 text-xl font-semibold py-2 md:px-6 text-center border-b-2 md:border-b-0  hover:bg-[#7f2d00]  border-[#243353] md:hover:text-[#e29b64] md:hover:bg-transparent ${pathname === '/' ? 'text-[#e29b64]' : 'text-[#243353]'}`}>
+                                <li className={`pb-6 text-xl font-semibold py-2 md:px-6 text-center border-b-2 md:border-b-0  hover:bg-[#7f2d00] hover:text-white  border-[#243353] md:hover:text-[#e29b64] md:hover:bg-transparent ${pathname === '/' ? 'text-[#e29b64]' : 'text-[#243353]'}`}>
                                     <Link href="/" onClick={() => setNavbar(!navbar)}>
                                         Home
                                     </Link>
                                 </li>
-                                <li className={`pb-6 text-xl font-semibold py-2 md:px-6 text-center border-b-2 md:border-b-0  hover:bg-[#7f2d00]  border-[#243353] md:hover:text-[#e29b64] md:hover:bg-transparent ${pathname === '/about' ? 'text-[#e29b64]' : 'text-[#243353]'}`}>
+                                <li className={`pb-6 text-xl font-semibold py-2 md:px-6 text-center border-b-2 md:border-b-0  hover:bg-[#7f2d00] hover:text-white  border-[#243353] md:hover:text-[#e29b64] md:hover:bg-transparent ${pathname === '/about' ? 'text-[#e29b64]' : 'text-[#243353]'}`}>
                                     <Link href="/about" onClick={() => setNavbar(!navbar)}>
                                         About
                                     </Link>
                                 </li>
-                                <li className={`pb-6 text-xl font-semibold py-2 md:px-6 text-center border-b-2 md:border-b-0  hover:bg-[#7f2d00]  border-[#243353] md:hover:text-[#e29b64] md:hover:bg-transparent ${pathname === '/portfolio' ? 'text-[#e29b64]' : 'text-[#243353]'}`}>
+                                <li className={`pb-6 text-xl font-semibold py-2 md:px-6 text-center border-b-2 md:border-b-0  hover:bg-[#7f2d00] hover:text-white  border-[#243353] md:hover:text-[#e29b64] md:hover:bg-transparent ${pathname === '/portfolio' ? 'text-[#e29b64]' : 'text-[#243353]'}`}>
                                     <Link href="/portfolio" onClick={() => setNavbar(!navbar)}>
                                         Portfolio
                                     </Link>
                                 </li>
-                                <li className={`pb-6 text-xl font-semibold py-2 md:px-6 text-center border-b-2 md:border-b-0  hover:bg-[#7f2d00] border-[#243353]  md:hover:text-[#e29b64] md:hover:bg-transparent ${pathname === '/contact' ? 'text-[#e29b64]' : 'text-[#243353]'}`}>
+                                <li className={`pb-6 text-xl font-semibold py-2 md:px-6 text-center border-b-2 md:border-b-0  hover:bg-[#7f2d00] hover:text-white border-[#243353]  md:hover:text-[#e29b64] md:hover:bg-transparent ${pathname === '/contact' ? 'text-[#e29b64]' : 'text-[#243353]'}`}>
                                     <Link href="/contact" onClick={() => setNavbar(!navbar)}>
                                         Contact
                                     </Link>
