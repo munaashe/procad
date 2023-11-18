@@ -10,7 +10,8 @@ const roboto = Roboto({
 
 export const metadata = {
   title: 'Home | Procad Construction',
-  description: 'Procad Construction - Your trusted partner for residential and commercial construction projects. Exceptional results, on time and within budget. Contact us today.'
+  description: 'Procad Construction - Your trusted partner for residential and commercial construction projects. Exceptional results, on time and within budget. Contact us today.',
+  keywords: ['Procad', 'Construction', 'Building', 'Zimbabwe', 'Renovations', 'Civil Works', 'Concrete Works', 'Civil Engineering', 'Structural Engineering', 'Brickworks', 'Contractors']
 }
 
 export default function RootLayout({ children }) {
