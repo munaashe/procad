@@ -4,10 +4,11 @@ import Welcome from './components/mainPage/Welcome'
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between">
-      <Banner />
+    <main className="flex min-h-screen flex-col items-center justify-center">
+      {/*<Banner />
       <Welcome />
-      <Contact />
+      <Contact />*/}
+      <h1>Site under repairs</h1>
     </main>
   )
 }
