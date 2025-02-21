@@ -1,19 +1,9 @@
 import Banner from "@/components/homepage/banner";
-import { Geist, Geist_Mono } from "next/font/google";
 import Head from "next/head";
 import ProjectsComponent from "@/components/homepage/projects";
 import CompanyPhilosophy from "@/components/homepage/philosophy";
 import Testimonials from "@/components/homepage/testimonials";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
 
 export default function Home() {
   return (
