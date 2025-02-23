@@ -17,9 +17,10 @@ const services: FooterLink[] = [
 ];
 
 const companyLinks: FooterLink[] = [
-    { title: 'Home', href: '/' },
+
     { title: 'About us', href: '/about' },
-    { title: 'Projects', href: '/projects' },
+    { title: 'Terms & Conditions', href: '/terms' },
+    { title: 'Privacy Policy', href: '/privacy' },
     { title: 'Contact Us', href: '/contact' },
 ];
 
