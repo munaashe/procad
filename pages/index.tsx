@@ -3,9 +3,31 @@ import Head from "next/head";
 import ProjectsComponent from "@/components/homepage/projects";
 import CompanyPhilosophy from "@/components/homepage/philosophy";
 import Testimonials from "@/components/homepage/testimonials";
+import Memberships from "@/components/homepage/memberships";
+import apolloClient from "@/lib/apolloclient";
+import { GET_HOMEPAGE_DATA } from "@/lib/queries";
+import {
+  CardDetails,
+  Membership as MembershipsProp,
+  Philosophy as PhilosophyProp,
+  Category as CategoryProp,
+} from "@/utils/types";
+
+interface Props {
+  testimonies: CardDetails[];
+  memberships: MembershipsProp;
+  philosophy: PhilosophyProp;
+  categories: CategoryProp[];
+}
 
 
-export default function Home() {
+export default function Home({
+  testimonies,
+  memberships,
+  philosophy,
+  categories
+}: Props) {
+  console.log(categories)
   return (
     <>
       <Head>
@@ -32,10 +54,35 @@ export default function Home() {
 
       <div className='min-h-[60vh]' >
         <Banner />
-        <ProjectsComponent />
+        <ProjectsComponent categories={categories} />
         <CompanyPhilosophy />
-        <Testimonials />
+        <Memberships />
+        <Testimonials testimonies={testimonies} />
       </div>
     </>
   );
+}
+
+export async function getServerSideProps() {
+  try {
+    const { data } = await apolloClient.query({
+      query: GET_HOMEPAGE_DATA
+    });
+
+    return {
+      props: {
+        testimonies: data?.testimonies?.items,
+        memberships: data?.memberships?.items[0],
+        philosophy: data?.philosophy?.items[0],
+        categories: data?.categories?.items,
+      },
+    };
+  } catch (error) {
+    console.error('Error fetching page data:', error);
+    return {
+      props: {
+        item: null,
+      },
+    };
+  }
 }
