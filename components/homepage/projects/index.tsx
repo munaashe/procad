@@ -1,10 +1,19 @@
+import CategoryCard from '@/components/cards/category-card';
+import Container from '@/components/ui-components/container';
+import { Category } from '@/utils/types'
 import React from 'react'
 
-const ProjectsComponent = () => {
+type Props = {
+    categories: Category[];
+}
+
+const ProjectsComponent = ({
+    categories = []
+}: Props) => {
     return (
-        <div>
-            projects on homepage
-        </div>
+        <Container>
+            {categories.map((category, index) => <CategoryCard key={index} category={category} />)}
+        </Container>
     )
 }
 
