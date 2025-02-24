@@ -23,11 +23,10 @@ interface Props {
 
 export default function Home({
   testimonies,
-  memberships,
-  philosophy,
+  //memberships,
+  //philosophy,
   categories
 }: Props) {
-  console.log(categories)
   return (
     <>
       <Head>

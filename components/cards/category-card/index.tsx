@@ -10,7 +10,7 @@ const CategoryCard = ({
 }: Props) => {
     return (
         <div>
-            category card
+            {category?.categoryName}
         </div>
     )
 }
