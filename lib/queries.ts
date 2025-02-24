@@ -13,3 +13,51 @@ export const GET_PAGE_DATA = gql`
     }
   }
 `;
+
+export const GET_HOMEPAGE_DATA = gql`
+  query GetHomepageData {
+    testimonies:  testimoniesCollection (limit: 4) {
+      items{
+        name
+        text
+        photograph{
+          url
+        }
+      }
+    }
+    memberships: membershipsCollection(limit: 1){
+      items {
+        title
+        subtitle
+        image{
+          url
+        }
+        memberships
+      }
+    }
+    philosophy:  companyPhilosophyCollection(limit: 1) {
+      items{
+        title
+        subtitle
+        image{
+          url
+          title
+        }
+        points
+      }
+    },
+    categories: categoryCollection(limit: 10) {
+      items {
+        categoryName
+        description
+        icon {
+          url
+        }
+        image {
+          url
+          title
+        }
+      }
+    }
+  }
+`;
