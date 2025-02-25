@@ -3,7 +3,7 @@ import Head from "next/head";
 import ProjectsComponent from "@/components/homepage/projects";
 import CompanyPhilosophy from "@/components/homepage/philosophy";
 import Testimonials from "@/components/homepage/testimonials";
-import Memberships from "@/components/homepage/memberships";
+import Container from "@/components/ui-components/container";
 import apolloClient from "@/lib/apolloclient";
 import { GET_HOMEPAGE_DATA } from "@/lib/queries";
 import {
@@ -23,8 +23,8 @@ interface Props {
 
 export default function Home({
   testimonies,
-  //memberships,
-  //philosophy,
+  memberships,
+  philosophy,
   categories
 }: Props) {
   return (
@@ -53,10 +53,12 @@ export default function Home({
 
       <div className='min-h-[60vh]' >
         <Banner />
-        <ProjectsComponent categories={categories} />
-        <CompanyPhilosophy />
-        <Memberships />
-        <Testimonials testimonies={testimonies} />
+        <Container>
+          <ProjectsComponent categories={categories} />
+          <CompanyPhilosophy philosophy={philosophy} />
+          <CompanyPhilosophy imageFirst={false} membership={memberships} />
+          <Testimonials testimonies={testimonies} />
+        </Container>
       </div>
     </>
   );

@@ -8,7 +8,7 @@ import { CardDetails } from '@/utils/types'
 const Testimonials = ({ testimonies }: { testimonies: CardDetails[] }) => {
     return (
         <Container className="my-8 md:my-16">
-            <Text variant="title3" color='black'>
+            <Text variant="title4" color='black'>
                 Testimonies
             </Text>
             <Text variant="title5" color='brown' additional="w-full max-w-[440px] mt-4 !text-khakhi">
