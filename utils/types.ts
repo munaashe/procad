@@ -18,11 +18,11 @@ export interface Membership {
         title: string;
     }
     memberships: string[];
-}
+};
 
 export interface Philosophy extends Membership {
     points: string[];
-}
+};
 
 export interface Category {
     categoryName: string;
@@ -34,4 +34,18 @@ export interface Category {
         url: string;
         title: string;
     };
-}
+};
+
+interface Image {
+    url: string;
+    title: string;
+};
+
+export interface Management {
+    name: string;
+    headline: string;
+    bio: string;
+    linkedin: string;
+    email: string;
+    image: Image;
+};

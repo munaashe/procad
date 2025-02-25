@@ -61,3 +61,21 @@ export const GET_HOMEPAGE_DATA = gql`
     }
   }
 `;
+
+export const GET_ABOUT_PAGE_DATA = gql`
+  query GetAboutPageData {
+    management: managementCollection(limit: 10) {
+      items {
+        name
+        headline
+        bio
+        linkedin
+        email
+        image {
+          url
+          title
+        }
+      }
+    }
+  }
+`

@@ -4,8 +4,17 @@ import CompanyVision from "./company-vision";
 import CoreValues from "./core-values";
 import Divisions from "./divisions";
 import Management from "./management";
+import apolloClient from "@/lib/apolloclient";
+import { GET_ABOUT_PAGE_DATA } from "@/lib/queries";
+import { Management as ManagementProp } from "@/utils/types";
 
-const AboutUs = () => {
+type Props = {
+    management: ManagementProp[];
+}
+
+const AboutUs = ({
+    management
+}: Props) => {
     return (
         <>
             <Head>
@@ -36,10 +45,32 @@ const AboutUs = () => {
                 <CompanyVision />
                 <CoreValues />
                 <Divisions />
-                <Management />
+                <Management management={management} />
             </div>
         </>
     );
 };
+
+
+export async function getServerSideProps() {
+    try {
+        const { data } = await apolloClient.query({
+            query: GET_ABOUT_PAGE_DATA
+        });
+
+        return {
+            props: {
+                management: data?.management?.items,
+            },
+        };
+    } catch (error) {
+        console.error('Error fetching page data:', error);
+        return {
+            props: {
+                item: null,
+            },
+        };
+    }
+}
 
 export default AboutUs;
