@@ -11,7 +11,7 @@ const TeamCard = ({ details }: Props) => {
     const [showBio, setShowBio] = useState(false);
 
     return (
-        <div className="flex flex-col items-center text-center w-full max-w-sm">
+        <div className={`flex flex-col items-center text-center w-full max-w-sm break-words bg-white w-full mb-6 shadow-xl pt-8 ${showBio ? "min-h-[500px]" : "h-[440px]"}`}>
             {/* Profile Image */}
             <div className="rounded-full overflow-hidden">
                 <Image
@@ -24,7 +24,7 @@ const TeamCard = ({ details }: Props) => {
             </div>
 
             {/* Info Card */}
-            <Container className="border border-black border-2 w-full p-4 mt-12">
+            <Container className="w-full p-4">
                 <div className='w-full flex items-center justify-center'>
                     <div className='flex-1 text-left'>
                         <Text variant='title5' additional='!text-[20px]'>
@@ -35,7 +35,7 @@ const TeamCard = ({ details }: Props) => {
                         </Text>
 
                     </div>
-                    <div className='flex flex-col items-end'>
+                    <div className='flex flex-col items-end mt-4'>
                         <div className="flex gap-3">
                             <a href={details.linkedin} target="_blank" rel="noopener noreferrer">
                                 <img
@@ -56,11 +56,11 @@ const TeamCard = ({ details }: Props) => {
                             className="mt-4 flex justify-end items-end h-6 w-6"
                             onClick={() => setShowBio(!showBio)}
                         >
-                             <img
-                                    src='/assets/icons/down-arrow.svg'
-                                    alt=''
-                                    className={`h-4 w-4 ${showBio ? 'rotate-180':''}`}
-                                />
+                            <img
+                                src='/assets/icons/down-arrow.svg'
+                                alt=''
+                                className={`h-4 w-4 ${showBio ? 'rotate-180' : ''}`}
+                            />
                         </button>
                     </div>
                 </div>
