@@ -11,6 +11,7 @@ import {
   Membership as MembershipsProp,
   Philosophy as PhilosophyProp,
   Category as CategoryProp,
+  BannerItem,
 } from "@/utils/types";
 
 interface Props {
@@ -18,6 +19,7 @@ interface Props {
   memberships: MembershipsProp;
   philosophy: PhilosophyProp;
   categories: CategoryProp[];
+  bannerItems: BannerItem[];
 }
 
 
@@ -25,7 +27,8 @@ export default function Home({
   testimonies,
   memberships,
   philosophy,
-  categories
+  categories,
+  bannerItems,
 }: Props) {
   return (
     <>
@@ -52,7 +55,7 @@ export default function Home({
       </Head >
 
       <div className='min-h-[60vh]' >
-        <Banner />
+        <Banner bannerItems={bannerItems} />
         <Container>
           <ProjectsComponent categories={categories} />
           <CompanyPhilosophy philosophy={philosophy} />
@@ -76,6 +79,7 @@ export async function getServerSideProps() {
         memberships: data?.memberships?.items[0],
         philosophy: data?.philosophy?.items[0],
         categories: data?.categories?.items,
+        bannerItems: data?. bannerItems?.items,
       },
     };
   } catch (error) {

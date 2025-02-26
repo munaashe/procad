@@ -49,3 +49,12 @@ export interface Management {
     email: string;
     image: Image;
 };
+
+export interface BannerItem {
+    title: string;
+    project: {
+        location: string;
+        slug: string;
+        coverImage: Image;
+    };
+}

@@ -45,7 +45,7 @@ export const GET_HOMEPAGE_DATA = gql`
         }
         points
       }
-    },
+    }
     categories: categoryCollection(limit: 10) {
       items {
         categoryName
@@ -56,6 +56,19 @@ export const GET_HOMEPAGE_DATA = gql`
         image {
           url
           title
+        }
+      }
+    }
+    bannerItems: bannerItemCollection(limit: 4){
+      items{
+        title
+        project{
+          location
+          slug
+          coverImage{
+            url
+            title
+          }
         }
       }
     }
