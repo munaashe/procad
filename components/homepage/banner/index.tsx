@@ -2,7 +2,6 @@
 
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
-import { useRouter } from 'next/navigation';
 import { BannerItem } from '@/utils/types';
 import Container from '@/components/ui-components/container';
 import Text from '@/components/ui-components/text';
@@ -14,7 +13,6 @@ type Props = {
 const Banner = ({ bannerItems }: Props) => {
     const [currentIndex, setCurrentIndex] = useState(0);
     const [isFading, setIsFading] = useState(false);
-    const router = useRouter();
 
     const handleNext = () => {
         setIsFading(true);
@@ -34,13 +32,6 @@ const Banner = ({ bannerItems }: Props) => {
         }, 300);
     };
 
-    const handleBarClick = (index: number) => {
-        setIsFading(true);
-        setTimeout(() => {
-            setCurrentIndex(index);
-            setIsFading(false);
-        }, 300);
-    };
 
     useEffect(() => {
         const interval = setInterval(() => {
