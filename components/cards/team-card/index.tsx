@@ -11,7 +11,7 @@ const TeamCard = ({ details }: Props) => {
     const [showBio, setShowBio] = useState(false);
 
     return (
-        <div className={`flex flex-col items-center text-center w-full max-w-sm break-words bg-white w-full mb-6 shadow-xl pt-8 ${showBio ? "min-h-[500px]" : "h-[440px]"}`}>
+        <div className={`flex flex-col items-center text-center w-full max-w-sm break-words bg-white w-full mb-6 shadow-xl pt-8 ${showBio ? "min-h-[500px]" : "h-[460px]"}`}>
             {/* Profile Image */}
             <div className="rounded-full overflow-hidden">
                 <Image
@@ -19,7 +19,7 @@ const TeamCard = ({ details }: Props) => {
                     alt={details.image.title}
                     width={128}
                     height={128}
-                    className="object-cover h-[280px] w-[280px]"
+                    className="object-cover h-[260px] w-[260px]"
                 />
             </div>
 
