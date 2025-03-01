@@ -27,13 +27,8 @@ export interface Philosophy extends Membership {
 export interface Category {
     categoryName: string;
     description: string;
-    icon: {
-        url: string;
-    };
-    image: {
-        url: string;
-        title: string;
-    };
+    icon: Image;
+    image: Image;
 };
 
 interface Image {
@@ -56,5 +51,26 @@ export interface BannerItem {
         location: string;
         slug: string;
         coverImage: Image;
+    };
+};
+export interface Asset {
+    __typename: string;
+    url: string;
+    description: string;
+    width: number;
+    height: number;
+}
+
+export interface Project {
+    title: string;
+    stage: string;
+    client: string;
+    slug: string;
+    coverImage: Image;
+    category: Category;
+    location: string;
+    details: JSON;
+    galleryCollection: {
+        items: Asset[];
     };
 }
