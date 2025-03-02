@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import ProjectsBanner from './projects-banner'
 import Filter from './filter'
 import Container from '@/components/ui-components/container'
@@ -25,6 +25,11 @@ const Projects = ({
         // Does nothing
     };
     const [selectedCategory, setSelectedCategory] = useState<string | null>(null)
+    useEffect(() => {
+        if (categories) {
+            setSelectedCategory(null);
+        }
+    }, [categories])
     return (
         <>
             <Head>

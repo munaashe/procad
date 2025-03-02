@@ -10,17 +10,15 @@ import { Asset, Project } from '@/utils/types';
 //import ProjectCard from '@/components/cards/project';
 import Image from 'next/image';
 import RichText from '@/components/ui-components/rich-text';
-import { useRouter } from 'next/router';
+//import { useRouter } from 'next/router';
 
 interface Props {
     project: Project;
     //relatedProjects: Project[];
 }
 
-const ProjectPage: React.FC<Props> = ({ project }) => {
+const ProjectPage = ({ project }: Props) => {
     const galleryItems = project?.galleryCollection?.items;
-
-    const firstAsset: Asset = galleryItems[0];
     const secondAsset: Asset = galleryItems[1];
     const thirdAndFourthAssets: Asset[] = galleryItems.slice(2, 4);
     const fifthAsset: Asset = galleryItems[4];
@@ -146,7 +144,7 @@ const ProjectPage: React.FC<Props> = ({ project }) => {
                                 />
                             </div>
 
-                            <Container className="absolute bottom-4 left-3/4 transform -translate-x-1/2 flex gap-4 md:translate-x-0 md:justify-start">
+                            <Container className="absolute bottom-4 -right-12 md:right-4 transform -translate-x-1/2 flex gap-4 md:translate-x-0 md:justify-start">
                                 <button
                                     onClick={handlePrevious}
                                     className="transform -translate-y-1/2 bg-white text-black text-[24px] rounded-full w-10 h-10 flex items-center justify-center hover:opacity-80"
@@ -270,20 +268,20 @@ export default ProjectPage;
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
     const { slug } = context.query;
-    console.log("the slug is", slug)
     try {
         const { data: projectData } = await apolloClient.query({
             query: GET_PROJECT,
             variables: { slug },
         });
+        console.log(projectData)
 
-        const project = projectData?.projectCollection?.items[0] || null;
+        const project = projectData?.project?.items[0] || null;
 
         if (!project) {
             return { notFound: true };
         }
 
-        const stage = project.stage;
+        //const stage = project.stage;
 
         {/*const { data: relatedProjectsData } = await apolloClient.query({
       query: GET_RELATED_PROJECTS,
