@@ -14,7 +14,6 @@ type Props = {
 const ContactUs = ({
     contactLinks
 }: Props) => {
-    console.log(contactLinks);
     return (
         <>
             <Head>
