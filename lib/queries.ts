@@ -175,3 +175,18 @@ query GetProject($slug: String!) {
   }
 }
 `;
+
+export const GET_CONTACT_LINKS = gql`
+  query GetContactLinks {
+    contactLinkCollection {
+      items {
+        titleText
+        text
+        link
+        icon {
+          url
+        }
+      }
+    }
+  }
+`

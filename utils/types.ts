@@ -74,3 +74,10 @@ export interface Project {
         items: Asset[];
     };
 }
+
+export interface ContactLink {
+    icon: Asset;
+    titleText: string;
+    text: string;
+    link: string;
+}
