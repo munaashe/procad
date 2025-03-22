@@ -90,6 +90,29 @@ export const GET_ABOUT_PAGE_DATA = gql`
         }
       }
     }
+    
+    vision:  visionCollection(limit: 1) {
+      items {
+        title
+        description
+        goals
+        image {
+          url
+          width
+          height
+        }
+      }
+    }
+    
+    values:  valuesCollection(order: sys_publishedAt_ASC) {
+      items {
+        title
+        description
+        icon {
+          url
+        }
+      }
+    }
   }
 `;
 

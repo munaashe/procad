@@ -2,18 +2,21 @@ import React from "react";
 import Head from "next/head";
 import CompanyVision from "./company-vision";
 import CoreValues from "./core-values";
-import Divisions from "./divisions";
 import Management from "./management";
 import apolloClient from "@/lib/apolloclient";
 import { GET_ABOUT_PAGE_DATA } from "@/lib/queries";
-import { Management as ManagementProp } from "@/utils/types";
+import { Management as ManagementProp, ValueItem, Vision } from "@/utils/types";
 
 type Props = {
     management: ManagementProp[];
+    vision: Vision;
+    values: ValueItem[];
 }
 
 const AboutUs = ({
-    management
+    management,
+    vision,
+    values
 }: Props) => {
     return (
         <>
@@ -42,10 +45,9 @@ const AboutUs = ({
             </Head>
 
             <div className="min-h-screen">
-                <CompanyVision />
-                <CoreValues />
-                <Divisions />
-                <Management management={management} />
+                {vision && <CompanyVision vision={vision} />}
+                {values && <CoreValues values={values} />}
+                {management && <Management management={management} />}
             </div>
         </>
     );
@@ -61,6 +63,8 @@ export async function getServerSideProps() {
         return {
             props: {
                 management: data?.management?.items,
+                vision: data?.vision?.items[0],
+                values: data?.values?.items,
             },
         };
     } catch (error) {

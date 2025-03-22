@@ -80,4 +80,17 @@ export interface ContactLink {
     titleText: string;
     text: string;
     link: string;
+};
+
+export interface Vision {
+    title: string;
+    description: string;
+    goals: string[];
+    image: Image;
+};
+
+export interface ValueItem {
+    title: string;
+    description: string;
+    icon: Image;
 }
