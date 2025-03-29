@@ -213,3 +213,23 @@ export const GET_CONTACT_LINKS = gql`
     }
   }
 `
+export const GET_RELATED_PROJECTS = gql`
+  query GetRelatedProjects($stage: String!, $slug: String!) {
+    projectCollection(
+      limit: 3
+      where: { stage: $stage, slug_not: $slug }
+      order: sys_publishedAt_DESC
+    ) {
+      items {
+        title
+        location
+        client
+        slug
+        coverImage {
+          url
+        }
+      }
+    }
+  }
+`;
+

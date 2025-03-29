@@ -3,21 +3,20 @@ import Container from '@/components/ui-components/container'
 import React, { useState, useEffect } from 'react';
 import Head from 'next/head';
 import apolloClient from '@/lib/apolloclient';
-import { GET_PROJECT } from '@/lib/queries';
+import { GET_PROJECT, GET_RELATED_PROJECTS } from '@/lib/queries';
 import { GetServerSideProps } from 'next';
 import Text from '@/components/ui-components/text';
 import { Asset, Project } from '@/utils/types';
-//import ProjectCard from '@/components/cards/project';
+import ProjectCard from '@/components/cards/project-card';
 import Image from 'next/image';
 import RichText from '@/components/ui-components/rich-text';
-//import { useRouter } from 'next/router';
 
 interface Props {
     project: Project;
-    //relatedProjects: Project[];
+    relatedProjects: Project[];
 }
 
-const ProjectPage = ({ project }: Props) => {
+const ProjectPage = ({ project, relatedProjects }: Props) => {
     const galleryItems = project?.galleryCollection?.items;
     const secondAsset: Asset = galleryItems[1];
     const thirdAndFourthAssets: Asset[] = galleryItems.slice(2, 4);
@@ -251,14 +250,14 @@ const ProjectPage = ({ project }: Props) => {
                 </div>
 
                 {/* Related projects */}
-                {/* <Text variant="title4" color="black" additional="my-4">
-          Related Projects
-        </Text>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8">
-          {relatedProjects.map((project, index) => (
-            <ProjectCard key={index} project={project} />
-          ))}
-        </div>*/}
+                {relatedProjects?.length > 0 && <Text variant="title4" color="black" additional="my-4">
+                    Related Projects
+                </Text>}
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8">
+                    {relatedProjects.map((project, index) => (
+                        <ProjectCard key={index} project={project} />
+                    ))}
+                </div>
             </Container>
         </>
     );
@@ -281,19 +280,19 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
             return { notFound: true };
         }
 
-        //const stage = project.stage;
+        const stage = project.stage;
 
-        {/*const { data: relatedProjectsData } = await apolloClient.query({
-      query: GET_RELATED_PROJECTS,
-      variables: { stage, slug },
-    });*/}
+        const { data: relatedProjectsData } = await apolloClient.query({
+            query: GET_RELATED_PROJECTS,
+            variables: { stage, slug },
+        });
 
-        //const relatedProjects = relatedProjectsData?.projectCollection?.items || [];
+        const relatedProjects = relatedProjectsData?.projectCollection?.items || [];
 
         return {
             props: {
                 project,
-                //relatedProjects,
+                relatedProjects,
             },
         };
     } catch (error) {
