@@ -7,29 +7,75 @@ import Container from '@/components/ui-components/container'
 import apolloClient from '@/lib/apolloclient'
 import { GET_PROJECTS } from '@/lib/queries'
 import { GetServerSideProps } from 'next'
-import { Category } from '@/utils/types'
+import { Category, Project } from '@/utils/types'
 import { capitalizeFirstCharacter } from '@/utils/capitalise-first-character'
 import ProjectCard from '@/components/cards/project-card'
 import Head from 'next/head'
+import { useRouter, useSearchParams } from 'next/navigation'
 
 type Props = {
-    projects: any[];
-    categories: Category[];
+    projects: Project[];
+    //categories: Category[];
 }
 
 const Projects = ({
-    categories,
     projects
 }: Props) => {
-    const onFilterChange: (type: 'jobType' | 'industry', value: string | null) => void = () => {
-        // Does nothing
-    };
-    const [selectedCategory, setSelectedCategory] = useState<string | null>(null)
+    const router = useRouter();
+    const searchParams = useSearchParams();
+    const [categories, setCategories] = useState<Category[]>([]);
+    const [stages, setStages] = useState<string[]>([]);
+    const [filterItems, setFilterItems] = useState({
+        category: searchParams.get('categoryName') || null,
+        stage: searchParams.get('stage') || null
+    });
+
     useEffect(() => {
-        if (categories) {
-            setSelectedCategory(null);
+        const searchParams = new URLSearchParams(window.location.search);
+        const hasQueryParams = searchParams.has('categoryName') || searchParams.has('stage');
+    
+        if (!hasQueryParams && projects.length > 0) {
+            const uniqueCategories = projects.reduce((acc: Category[], project: Project) => {
+                const category = project.category;
+                if (!acc.some((cat) => cat.categoryName === category.categoryName)) {
+                    acc.push(category);
+                }
+                return acc;
+            }, []);
+            setCategories(uniqueCategories);
+    
+            const uniqueStages = projects.reduce((acc: string[], project: Project) => {
+                const stage = project.stage;
+                if (!acc.includes(stage)) {
+                    acc.push(stage);
+                }
+                return acc;
+            }, []);
+            setStages(uniqueStages);
         }
-    }, [categories])
+    }, [projects]);
+
+    const onFilterChange = (type: 'category' | 'stage', value: string | null) => {
+        const newFilters = {
+            ...filterItems,
+            [type]: value
+        };
+
+        setFilterItems(newFilters);
+
+        // Update URL with new filters
+        const params = new URLSearchParams();
+        if (newFilters.category) params.set('categoryName', newFilters.category);
+        if (newFilters.stage) params.set('stage', newFilters.stage);
+
+        router.push(`/projects?${params.toString()}`, { scroll: false });
+    };
+
+    const [selectedCategory, setSelectedCategory] = useState<string | null>(filterItems.category)
+    useEffect(() => {
+        setSelectedCategory(filterItems.category);
+    }, [filterItems.category])
+
     return (
         <>
             <Head>
@@ -58,9 +104,10 @@ const Projects = ({
             <Container className='min-h-[70vh]'>
                 <ProjectsBanner selectedCategory={selectedCategory} />
                 <Filter
-                    jobTypes={[]}
-                    industries={[]}
-                    onFilterChange={() => onFilterChange('industry', '')}
+                    stages={stages}
+                    categories={categories}
+                    filterItems={filterItems}
+                    onFilterChange={onFilterChange}
                 />
                 <Container className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12 !px-0'>
                     {projects.map((project, index) => <ProjectCard key={index} project={project} />)}
@@ -72,12 +119,10 @@ const Projects = ({
 
 export default Projects
 
-
 export const getServerSideProps: GetServerSideProps = async (context) => {
     const { stage, categoryName } = context.query || {};
     const capitalizedCategoryName = categoryName ? capitalizeFirstCharacter(categoryName as string) : null;
     const capitalizedStage = stage ? capitalizeFirstCharacter(stage as string) : null;
-
 
     try {
         const { data } = await apolloClient.query({
@@ -90,8 +135,8 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
 
         return {
             props: {
-                categories: data?.categories?.items,
-                projects: data?.projects?.items,
+                categories: data?.categories?.items || [],
+                projects: data?.projects?.items || [],
             },
         };
     } catch (error) {

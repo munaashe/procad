@@ -2,17 +2,18 @@
 
 import React, { useState } from 'react'
 import Container from '@/components/ui-components/container';
+import { Category } from '@/utils/types';
 //import { JobFilterItemsType } from '@/app/[locale]/[item]/page';
 
 interface Props {
-    industries?: string[];
-    jobTypes?: string[];
+    categories?: Category[];
+    stages?: string[];
     filterItems?: any;
-    onFilterChange: (type: 'jobType' | 'industry', value: string | null) => void;
+    onFilterChange: (type: 'category' | 'stage', value: string | null) => void;
 }
 
-const Filter = ({ industries = [], jobTypes = [], filterItems, onFilterChange }: Props) => {
-    const [selectedTab, setSelectedTab] = useState<'industries' | 'job types'>('industries')
+const Filter = ({ categories = [], stages = [], filterItems, onFilterChange }: Props) => {
+    const [selectedTab, setSelectedTab] = useState<'category' | 'stage'>('category')
     const [filtersOpen, setFiltersOpen] = useState<boolean>(false)
     //const t = useTranslations()
 
@@ -41,11 +42,10 @@ const Filter = ({ industries = [], jobTypes = [], filterItems, onFilterChange }:
                 </div>
 
                 {filtersOpen && <>
-                    {/* Industry and Job Type Tab Selector */}
-                    <div className={`flex justify-center items-center gap-2 p-2 cursor-pointer duration-300 text-white ${selectedTab === 'industries' ? 'bg-brown-1 hover:bg-brown-2' : 'text-black bg-gray-2 hover:bg-brown-2'}`}
-                        onClick={() => setSelectedTab('industries')}
+                    <div className={`flex justify-center items-center gap-2 p-2 cursor-pointer duration-300 text-white ${selectedTab === 'category' ? 'bg-brown-1 hover:bg-brown-2' : 'text-black bg-gray-2 hover:bg-brown-2'}`}
+                        onClick={() => setSelectedTab('category')}
                     >
-                        <svg fill={selectedTab === 'industries' ? '#ffffff' : '#111111'} height='20px' width='25px' viewBox="0 -35.58 122.88 122.88" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" stroke={selectedTab === 'industries' ? '#ffffff' : '#111111'}>
+                        <svg fill={selectedTab === 'category' ? '#ffffff' : '#111111'} height='20px' width='25px' viewBox="0 -35.58 122.88 122.88" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" stroke={selectedTab === 'category' ? '#ffffff' : '#111111'}>
                             <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
                             <g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round"></g>
                             <g id="SVGRepo_iconCarrier"> <style type="text/css"></style>
@@ -54,12 +54,12 @@ const Filter = ({ industries = [], jobTypes = [], filterItems, onFilterChange }:
                                 </g>
                             </g>
                         </svg>
-                        <div className='font-semibold text-[18px] hidden md:block'>
+                        <div className={`font-semibold text-[18px] hidden md:block ${selectedTab === 'category' ? 'text-white' : 'text-black'}`}>
                             Category
                         </div>
                     </div>
-                    <div className={`flex justify-center items-center gap-2 p-2 cursor-pointer duration-300 text-white ${selectedTab === 'job types' ? 'bg-brown-1 hover:bg-brown-2' : ' text-black bg-gray-2 hover:bg-brown-2'}`}
-                        onClick={() => setSelectedTab('job types')}
+                    <div className={`flex justify-center items-center gap-2 p-2 cursor-pointer duration-300 text-white ${selectedTab === 'stage' ? 'bg-brown-1 hover:bg-brown-2' : ' text-black bg-gray-2 hover:bg-brown-2'}`}
+                        onClick={() => setSelectedTab('stage')}
                     >
                         <svg
                             viewBox="0 0 24 24"
@@ -67,58 +67,58 @@ const Filter = ({ industries = [], jobTypes = [], filterItems, onFilterChange }:
                             height="20px"
                             fill="none"
                             xmlns="http://www.w3.org/2000/svg"
-                            stroke={selectedTab === 'job types' ? '#ffffff' : '#111111'}
+                            stroke={selectedTab === 'stage' ? '#ffffff' : '#111111'}
                         >
                             <g id="SVGRepo_iconCarrier">
                                 <path
                                     d="M8.75 13.5C10.2869 13.5 11.5747 14.5668 11.9131 16.0003L21.25 16C21.6642 16 22 16.3358 22 16.75C22 17.1297 21.7178 17.4435 21.3518 17.4932L21.25 17.5L11.9129 17.5007C11.5741 18.9337 10.2866 20 8.75 20C7.21345 20 5.92594 18.9337 5.58712 17.5007L2.75 17.5C2.33579 17.5 2 17.1642 2 16.75C2 16.3703 2.28215 16.0565 2.64823 16.0068L2.75 16L5.58688 16.0003C5.92534 14.5668 7.21309 13.5 8.75 13.5Z"
-                                    fill={selectedTab === 'job types' ? '#ffffff' : '#000000'}
+                                    fill={selectedTab === 'stage' ? '#ffffff' : '#000000'}
                                 />
                                 <path
                                     d="M15.25 4C16.7869 4 18.0747 5.06682 18.4131 6.50034L21.25 6.5C21.6642 6.5 22 6.83579 22 7.25C22 7.6297 21.7178 7.94349 21.3518 7.99315L21.25 8L18.4129 8.00066C18.0741 9.43368 16.7866 10.5 15.25 10.5C13.7134 10.5 12.4259 9.43368 12.0871 8.00066L2.75 8C2.33579 8 2 7.66421 2 7.25C2 6.8703 2.28215 6.55651 2.64823 6.50685L2.75 6.5L12.0869 6.50034C12.4253 5.06682 13.7131 4 15.25 4Z"
-                                    fill={selectedTab === 'job types' ? '#ffffff' : '#000000'}
+                                    fill={selectedTab === 'stage' ? '#ffffff' : '#000000'}
                                 />
                             </g>
                         </svg>
-                        <div className='font-semibold text-[18px] whitespace-nowrap hidden md:block'>
+                        <div className={`font-semibold text-[18px] whitespace-nowrap hidden md:block ${selectedTab === 'stage' ? 'text-white' : 'text-black'}`}>
                             Stage
                         </div>
                     </div>
                 </>}
             </div>
 
-            {/* Industries and Job Types */}
-            {/* {filtersOpen && <>
-                {selectedTab === 'industries' && (
+            {/*Categories and Stages */}
+            {filtersOpen && <>
+                {selectedTab === 'category' && (
                     <Container className='w-full bg-gray-2 flex flex-wrap gap-4'>
-                        <div onClick={() => onFilterChange('industry', null)}
-                            className={`p-2 bg-brown text-white text-[14px] md:text-[16px] font-semibold cursor-pointer ${filterItems.industry === null ? 'bg-green-500 hover:bg-green-700' : 'hover:bg-[#653b1e]'}`}>
-                            All
+                        <div onClick={() => onFilterChange('category', null)}
+                            className={`p-2 bg-brown text-black text-[14px] md:text-[16px] font-semibold cursor-pointer ${filterItems?.category === null ? 'text-green-500 hover:text-green-700' : 'hover:text-[#653b1e]'}`}>
+                            All Categories
                         </div>
-                        {industries.map((industry, index) => (
-                            <div key={index} onClick={() => onFilterChange('industry', industry)}
-                                className={`p-2 bg-brown text-white text-[14px] md:text-[16px] font-semibold cursor-pointer ${filterItems.industry === industry ? 'bg-green-500 hover:bg-green-700' : 'hover:bg-[#653b1e]'}`}>
-                                {industry?.charAt(0).toUpperCase() + industry?.slice(1)}
+                        {categories.map((category, index) => (
+                            <div key={index} onClick={() => onFilterChange('category', category?.categoryName)}
+                                className={`p-2 bg-brown text-black text-[14px] md:text-[16px] font-semibold cursor-pointer ${filterItems?.category === category?.categoryName ? 'text-green-500 hover:text-green-700' : 'hover:text-[#653b1e]'}`}>
+                                {category?.categoryName?.charAt(0).toUpperCase() + category?.categoryName?.slice(1)}
                             </div>
                         ))}
                     </Container>
                 )}
 
-                {selectedTab === 'job types' && (
+                {selectedTab === 'stage' && (
                     <Container className='w-full bg-gray-2 flex flex-wrap gap-4'>
-                        <div onClick={() => onFilterChange('jobType', null)}
-                            className={`p-2 bg-brown text-white text-[14px] md:text-[16px] font-semibold cursor-pointer ${filterItems.jobType === null ? 'bg-green-500 hover:bg-green-700' : 'hover:bg-[#653b1e]'}`}>
-                            All
+                        <div onClick={() => onFilterChange('stage', null)}
+                            className={`p-2 bg-brown text-black text-[14px] md:text-[16px] font-semibold cursor-pointer ${filterItems?.stage === null ? 'text-green-500 hover:text-green-700' : 'hover:text-[#653b1e]'}`}>
+                            All Stages
                         </div>
-                        {jobTypes.map((job, index) => (
-                            <div key={index} onClick={() => onFilterChange('jobType', job)}
-                                className={`p-2 bg-brown text-white text-[14px] md:text-[16px] font-semibold cursor-pointer ${filterItems.jobType === job ? 'bg-green-500 hover:bg-green-700' : 'hover:bg-[#653b1e]'}`}>
-                                {job?.charAt(0).toUpperCase() + job?.slice(1)}
+                        {stages.map((stage, index) => (
+                            <div key={index} onClick={() => onFilterChange('stage', stage)}
+                                className={`p-2 bg-brown text-black text-[14px] md:text-[16px] font-semibold cursor-pointer ${filterItems?.stage === stage ? 'text-green-500 hover:text-green-700' : 'hover:text-[#653b1e]'}`}>
+                                {stage?.charAt(0).toUpperCase() + stage?.slice(1)}
                             </div>
                         ))}
                     </Container>
                 )}
-            </>}*/}
+            </>}
         </div>
     )
 }
