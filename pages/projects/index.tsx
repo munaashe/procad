@@ -52,6 +52,11 @@ const Projects = ({
             return acc;
         }, []);
         setStages(uniqueStages);
+
+        setFilterItems((prev) => ({
+            ...prev,
+            stage: null, 
+        }));
     }, [projects]);
 
     const onFilterChange = (type: 'category' | 'stage', value: string | null) => {
