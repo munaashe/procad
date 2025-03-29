@@ -33,7 +33,7 @@ const Projects = ({
     useEffect(() => {
         const searchParams = new URLSearchParams(window.location.search);
         const hasQueryParams = searchParams.has('categoryName') || searchParams.has('stage');
-    
+
         if (!hasQueryParams && projects.length > 0) {
             const uniqueCategories = projects.reduce((acc: Category[], project: Project) => {
                 const category = project.category;
@@ -43,16 +43,15 @@ const Projects = ({
                 return acc;
             }, []);
             setCategories(uniqueCategories);
-    
-            const uniqueStages = projects.reduce((acc: string[], project: Project) => {
-                const stage = project.stage;
-                if (!acc.includes(stage)) {
-                    acc.push(stage);
-                }
-                return acc;
-            }, []);
-            setStages(uniqueStages);
         }
+        const uniqueStages = projects.reduce((acc: string[], project: Project) => {
+            const stage = project.stage;
+            if (!acc.includes(stage)) {
+                acc.push(stage);
+            }
+            return acc;
+        }, []);
+        setStages(uniqueStages);
     }, [projects]);
 
     const onFilterChange = (type: 'category' | 'stage', value: string | null) => {
