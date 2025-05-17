@@ -21,6 +21,7 @@ type Props = {
 const Projects = ({
     projects
 }: Props) => {
+    console.log('projects', projects)
     const router = useRouter();
     const searchParams = useSearchParams();
     const [categories, setCategories] = useState<Category[]>([]);
@@ -37,7 +38,7 @@ const Projects = ({
         if (!hasQueryParams && projects.length > 0) {
             const uniqueCategories = projects.reduce((acc: Category[], project: Project) => {
                 const category = project.category;
-                if (!acc.some((cat) => cat.categoryName === category.categoryName)) {
+                if (!acc.some((cat) => cat?.categoryName === category?.categoryName)) {
                     acc.push(category);
                 }
                 return acc;
