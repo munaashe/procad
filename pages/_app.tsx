@@ -14,9 +14,11 @@ const raleway = Raleway({
 export default function App({ Component, pageProps }: AppProps) {
   return (
     <div className={`${raleway.variable} font-sans`}>
-      <Header />
-      <Component {...pageProps} />
-      <Footer />
+      <div className="max-w-[1440px] mx-auto w-full">
+        <Header />
+        <Component {...pageProps} />
+        <Footer />
+      </div>
     </div>
   );
 }
