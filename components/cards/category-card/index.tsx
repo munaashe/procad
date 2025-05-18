@@ -13,20 +13,24 @@ const CategoryCard = ({
     category
 }: Props) => {
     return (
-        <Container className='!p-0'>
+        <Container className='!p-0 flex flex-col h-full'>
             <Text variant='title5'>
                 {category?.categoryName}
             </Text>
+
             <Image
                 src={category?.image?.url}
                 alt=''
                 width={100}
                 height={100}
-                className='h-[240px] w-full  object-cover mt-4'
+                className='h-[240px] w-full object-cover mt-4'
             />
-            <Text variant='body2' additional='mt-2 h-[180px]'>
+
+            {/* Description takes up remaining space */}
+            <Text variant='body2' additional='mt-2 flex-grow'>
                 {category?.description}
             </Text>
+
             <Button additional='uppercase mt-6' size='small'>
                 View Projects
             </Button>
@@ -34,4 +38,4 @@ const CategoryCard = ({
     )
 }
 
-export default CategoryCard
+export default CategoryCard;
