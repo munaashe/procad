@@ -13,7 +13,7 @@ const CategoryCard = ({
     category
 }: Props) => {
     return (
-        <Container className='!p-0 flex flex-col'>
+        <Container className='!p-0'>
             <Text variant='title5'>
                 {category?.categoryName}
             </Text>
@@ -24,7 +24,7 @@ const CategoryCard = ({
                 height={100}
                 className='h-[240px] w-full  object-cover mt-4'
             />
-            <Text variant='body2' additional='mt-2 flex-1'>
+            <Text variant='body2' additional='mt-2 h-[180px]'>
                 {category?.description}
             </Text>
             <Button additional='uppercase mt-6' size='small'>
